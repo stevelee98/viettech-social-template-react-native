@@ -1,0 +1,27 @@
+{
+    "vetur.format.options.tabSize": 4,
+    "prettier.documentSelectors": [
+        "**/*.prettierrc.js",
+        ".prettierrc",
+        ".prettierrc.json"
+    ],
+    "prettier.configPath": ".prettierrc.js",
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "[javascript]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "prettier.printWidth": 80,
+    "prettier.useTabs": true,
+    "prettier.singleQuote": true,
+    "editor.detectIndentation": true,
+    "editor.wrappingIndent": "indent",
+    "editor.tabSize": 4,
+    "prettier.enableDebugLogs": true,
+    "prettier.tabWidth": 4,
+    "editor.codeActionsOnSave": {
+        "source.organizeImports": true
+    },
+    "files.associations": {
+        "*.js": "javascriptreact"
+    }
+}
