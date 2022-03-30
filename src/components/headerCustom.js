@@ -2,8 +2,8 @@ import { useNavigation } from '@react-navigation/native';
 import ImageLoader from 'components/imageLoader';
 import ic_back_green from 'images/ic_back_green.png';
 import ic_back_white from 'images/ic_back_white.png';
+import ic_bell_black from 'images/ic_bell_black.png';
 import ic_menu_home_white from 'images/ic_menu_home_white.png';
-import ic_notification_white from 'images/ic_notification_white.png';
 import ic_share_white from 'images/ic_share_white.png';
 import logo_text from 'images/logo_text.png';
 import React from 'react';
@@ -36,7 +36,7 @@ const HeaderCustom = props => {
         bgHeaderIcon,
         titleStyle,
         user,
-        gotoLogin,
+        gotoProfile,
         gotoNotification,
         gotoMenu,
         menuOptionButton,
@@ -112,7 +112,7 @@ const HeaderCustom = props => {
         return (
             <Pressable
                 android_ripple={Constants.ANDROID_RIPPLE}
-                onPress={gotoLogin}
+                onPress={gotoProfile}
                 style={styles.user}
             >
                 <ImageLoader
@@ -132,15 +132,24 @@ const HeaderCustom = props => {
         return (
             <Pressable
                 android_ripple={Constants.ANDROID_RIPPLE}
-                style={[
-                    {
-                        padding: PADDING,
-                        marginRight: Constants.MARGIN,
-                    },
-                ]}
+                style={{
+                    padding: Constants.PADDING,
+                    marginRight: Constants.MARGIN12,
+                }}
                 onPress={gotoNotification}
             >
-                <Image source={ic_notification_white} />
+                <Image source={ic_bell_black} />
+                <View
+                    style={{
+                        backgroundColor: 'red',
+                        width: 6,
+                        height: 6,
+                        borderRadius: 6,
+                        position: 'absolute',
+                        right: 8,
+                        top: 0,
+                    }}
+                />
             </Pressable>
         );
     };
@@ -306,22 +315,13 @@ const HeaderCustom = props => {
                 {visibleLogo && renderLogo()}
                 {!StringUtil.isNullOrEmpty(title) && renderTitle()}
                 {renderLeftMenu && renderLeftMenu()}
+                {visibleNotification && renderNotification()}
                 {user && renderAccount()}
                 {searchBar && renderSearchBar()}
                 {renderMidMenu && renderMidMenu()}
                 {visibleShare && renderShare()}
                 {visibleMenu && renderMenu()}
-                {visibleNotification && renderNotification()}
-                {renderRightMenu && (
-                    <View
-                        style={{
-                            justifyContent: 'flex-end',
-                            flex: searchBar ? 0 : 1,
-                        }}
-                    >
-                        {renderRightMenu()}
-                    </View>
-                )}
+                {renderRightMenu && renderRightMenu()}
             </View>
             <StatusBar
                 animated={true}

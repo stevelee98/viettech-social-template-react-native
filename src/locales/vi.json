@@ -80,5 +80,11 @@
     "post": "Đăng bài",
     "comment_by": "Bình luận của",
     "feedback": "Phản hồi",
-    "report": "Báo cáo"
+    "report": "Báo cáo",
+    "create_post": "Tạo bài viết",
+    "private": "Riêng tư",
+    "public": "Công khai",
+    "peopel_can_see": "Mọi người đều có thể nhìn thấy bài đăng",
+    "just_you_see": "Chỉ mình bạn có thể thấy bài đăng",
+    "how_to_your_post_show": "Cách mà bài đăng của bạn hiển thị"
 }

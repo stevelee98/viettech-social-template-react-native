@@ -15,12 +15,12 @@ import { Colors } from 'values/colors';
 import { Constants } from 'values/constants';
 import { Fonts } from 'values/fonts';
 
-const MARGIN_RESOURCE = 1;
+const MARGIN_RESOURCE = 4;
 const MAX_RESOURCE = 5;
 
 const ItemNewfeed = props => {
     const { item, index, length, onPress, gotoUser } = props;
-    const [width, setWidth] = useState(Constants.MAX_WIDTH - 6);
+    const [width, setWidth] = useState(Constants.MAX_WIDTH - 12);
     const [liked, setLiked] = useState(item.liked);
     const [numOfLike, setNumOfLike] = useState(item.numOfLike);
     const [isCollapsed, setCollapsed] = useState(true);
@@ -203,7 +203,7 @@ const ItemNewfeed = props => {
                                         )}
                                     <Pressable
                                         android_ripple={{
-                                            color: Colors.COLOR_BLACK_OPACITY_30,
+                                            color: 'rgba(255, 255, 255, 0.1)',
                                             borderless: false,
                                         }}
                                         style={{

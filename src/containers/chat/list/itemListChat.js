@@ -5,7 +5,7 @@ import ImageDefaultType from 'enum/imageDefaultType';
 import messageType from 'enum/messageType';
 import ResourceType from 'enum/resourceType';
 import ic_delete_grey from 'images/ic_delete_grey.png';
-import React, { PureComponent } from 'react';
+import React,{ PureComponent } from 'react';
 import {
     Dimensions,
     Image,

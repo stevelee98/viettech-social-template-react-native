@@ -16,7 +16,6 @@ import ic_camera_grey from 'images/ic_camera_gray.png';
 import ic_picture_grey from 'images/ic_picture_grey.png';
 import { localizes } from 'locales/i18n';
 import { Container, Root, Text } from 'native-base';
-import React from 'react';
 import {
     Dimensions,
     Image,

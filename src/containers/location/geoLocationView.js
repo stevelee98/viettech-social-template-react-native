@@ -1,15 +1,7 @@
 import React, { Component } from 'react';
-import { View, Platform, PermissionsAndroid } from 'react-native';
+import { PermissionsAndroid, Platform, View } from 'react-native';
 import Geolocation from 'react-native-geolocation-service';
 
-import StorageUtil from 'utils/storageUtil';
-import Utils from 'utils/utils';
-
-import { configConstants } from 'values/configConstants';
-
-import userType from 'enum/userType';
-
-import BaseView from 'containers/base/baseView';
 export default class GeoLocationView extends Component {
     constructor(props) {
         super(props);
@@ -27,7 +19,7 @@ export default class GeoLocationView extends Component {
     /**
      * Get geo location
      */
-    getGeoLocation = async (handleGetMyLocation) => {
+    getGeoLocation = async handleGetMyLocation => {
         this.handleGetMyLocation = handleGetMyLocation;
         await this.getLocationUpdates();
         await setInterval(() => {
@@ -40,21 +32,23 @@ export default class GeoLocationView extends Component {
      */
     getLocation = async () => {
         if (Platform.os === 'android') {
-            const hasLocationPermission = await this.hasPermission(PermissionsAndroid.PERMISSIONS.ACCESS_FINE_LOCATION);
+            const hasLocationPermission = await this.hasPermission(
+                PermissionsAndroid.PERMISSIONS.ACCESS_FINE_LOCATION,
+            );
             if (!hasLocationPermission) return;
         }
 
         Geolocation.getCurrentPosition(
-            (position) => {
+            position => {
                 global.myCoordinate = {
                     latitude: position.coords.latitude,
                     longitude: position.coords.longitude,
                     latitudeDelta: 0.015,
-                    longitudeDelta: 0.0121
-                }
+                    longitudeDelta: 0.0121,
+                };
                 this.resultPosition();
             },
-            (error) => {
+            error => {
                 this.setState({ error: error.message });
                 console.log(error);
             },
@@ -64,7 +58,7 @@ export default class GeoLocationView extends Component {
                 maximumAge: this.TIMEOUT_CACHE_OLD_POSITION,
                 distanceFilter: this.DISTANCE_LOCATION,
                 forceRequestLocation: true,
-            }
+            },
         );
     };
 
@@ -73,19 +67,21 @@ export default class GeoLocationView extends Component {
      */
     getLocationUpdates = async () => {
         if (Platform.os === 'android') {
-            const hasLocationPermission = await this.hasPermission(PermissionsAndroid.PERMISSIONS.ACCESS_FINE_LOCATION);
+            const hasLocationPermission = await this.hasPermission(
+                PermissionsAndroid.PERMISSIONS.ACCESS_FINE_LOCATION,
+            );
             if (!hasLocationPermission) return;
         }
         this.watchId = Geolocation.watchPosition(
-            (position) => {
+            position => {
                 global.myCoordinate = {
                     latitude: position.coords.latitude,
-                    longitude: position.coords.longitude
-                }
+                    longitude: position.coords.longitude,
+                };
                 this.resultPosition();
                 // console.log("Watch Position", position)
             },
-            (error) => {
+            error => {
                 this.setState({ error: error.message });
                 console.log(error);
             },
@@ -94,7 +90,7 @@ export default class GeoLocationView extends Component {
                 distanceFilter: 0,
                 interval: 5000,
                 fastestInterval: 2000,
-            }
+            },
         );
     };
 

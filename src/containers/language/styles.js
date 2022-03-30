@@ -1,11 +1,6 @@
-import React from 'react-native';
 import commonStyles from 'styles/commonStyles';
 import { Colors } from 'values/colors';
 import { Constants } from 'values/constants';
-const { Dimensions, Platform } = React;
-const deviceHeight = Dimensions.get('window').height;
-const deviceWidth = Dimensions.get('window').width;
-const { StyleSheet } = React;
 
 export default styles = {
     container: {
@@ -43,6 +38,6 @@ export default styles = {
     },
     textActive: {
         ...commonStyles.textMediumBold,
-        color: Colors.COLOR_PRIMARY
-    }
+        color: Colors.COLOR_PRIMARY,
+    },
 };

@@ -1,7 +1,6 @@
 import VideoPlayer from 'components/videoPlayer';
 import BaseView from 'containers/base/baseView';
 import ic_cancel_white from 'images/ic_cancel_white.png';
-import React from 'react';
 import {
     ActivityIndicator,
     Dimensions,

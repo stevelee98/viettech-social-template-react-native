@@ -16,7 +16,6 @@ import ic_delete_orange from 'images/ic_delete_orange.png';
 import ic_edit_orange from 'images/ic_edit_orange.png';
 import { localizes } from 'locales/i18n';
 import { Container, Content, Root } from 'native-base';
-import React from 'react';
 import {
     Dimensions,
     Image,

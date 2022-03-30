@@ -13,13 +13,12 @@ import ic_playlist_add_check_grey from 'images/ic_playlist_add_check_grey.png';
 import ic_search_gray from 'images/ic_search_gray.png';
 import { localizes } from 'locales/i18n';
 import { Container, Root } from 'native-base';
-import React from 'react';
 import {
     Image,
     Keyboard,
     RefreshControl,
     TouchableOpacity,
-    View
+    View,
 } from 'react-native';
 import { connect } from 'react-redux';
 import StorageUtil from 'utils/storageUtil';
@@ -282,7 +281,7 @@ class ListChatView extends BaseView {
                         onBack={this.onBack}
                         gradient={true}
                         backgroundColor={true}
-                        renderRightMenu= {this.renderReadAll}
+                        renderRightMenu={this.renderReadAll}
                         titleStyle={{ color: Colors.COLOR_WHITE }}
                     />
                     <FlatListCustom

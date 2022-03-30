@@ -1,12 +1,8 @@
-import React, { Component } from "react";
-import {
-    StyleSheet,
-
-    View
-} from "react-native";
+import React, { Component } from 'react';
+import { StyleSheet, View } from 'react-native';
 import DateTimePicker from 'react-native-modal-datetime-picker';
-import Utils from "utils/utils";
-import { Colors } from "values/colors";
+import Utils from 'utils/utils';
+import { Colors } from 'values/colors';
 
 export class CalendarScreen extends Component {
     constructor(props) {
@@ -15,24 +11,28 @@ export class CalendarScreen extends Component {
             selected: null,
             isDateTimePickerVisible: false,
         };
-        this.chooseDate = this.props.chooseDate
-        this.show = false
+        this.chooseDate = this.props.chooseDate;
+        this.show = false;
     }
 
     showDateTimePicker = () => this.setState({ isDateTimePickerVisible: true });
 
-    hideDateTimePicker = () => this.setState({ isDateTimePickerVisible: false });
+    hideDateTimePicker = () =>
+        this.setState({ isDateTimePickerVisible: false });
 
-    handleDatePicked = (datetime) => {
-        this.setState({
-            isDateTimePickerVisible: false,
-            selected: datetime
-        }, () => this.onSaveChange());
+    handleDatePicked = datetime => {
+        this.setState(
+            {
+                isDateTimePickerVisible: false,
+                selected: datetime,
+            },
+            () => this.onSaveChange(),
+        );
     };
 
     render() {
-        const { selected, isDateTimePickerVisible } = this.state
-        const { dateCurrent, minimumDate, maximumDate, mode } = this.props
+        const { selected, isDateTimePickerVisible } = this.state;
+        const { dateCurrent, minimumDate, maximumDate, mode } = this.props;
         let date = !Utils.isNull(selected) ? selected : dateCurrent;
         return (
             <View>
@@ -55,7 +55,7 @@ export class CalendarScreen extends Component {
      */
     onDaySelect(date) {
         this.setState({
-            selected: date
+            selected: date,
         });
     }
 
@@ -64,27 +64,27 @@ export class CalendarScreen extends Component {
      */
     onSaveChange() {
         this.chooseDate(
-            this.state.selected ? this.state.selected : this.props.dateCurrent
+            this.state.selected ? this.state.selected : this.props.dateCurrent,
         );
     }
 }
 
 const styles = StyleSheet.create({
     text: {
-        textAlign: "center",
+        textAlign: 'center',
         padding: 10,
-        fontWeight: "bold",
-        color: Colors.COLOR_WHITE
+        fontWeight: 'bold',
+        color: Colors.COLOR_WHITE,
     },
     barView: {
-        backgroundColor: Colors.COLOR_ORANGE
+        backgroundColor: Colors.COLOR_ORANGE,
     },
     daySelectedText: {
-        fontWeight: "bold",
+        fontWeight: 'bold',
         backgroundColor: Colors.COLOR_ORANGE,
         color: Colors.COLOR_WHITE,
         borderRadius: 15,
-        borderColor: "transparent",
-        overflow: "hidden"
-    }
+        borderColor: 'transparent',
+        overflow: 'hidden',
+    },
 });

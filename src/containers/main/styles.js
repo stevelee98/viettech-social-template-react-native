@@ -1,7 +1,6 @@
-import React from "react-native";
-import { Constants } from 'values/constants';
+import commonStyles from 'styles/commonStyles';
 import { Colors } from 'values/colors';
-import commonStyles from "styles/commonStyles";
+import { Constants } from 'values/constants';
 
 export default styles = {
     post: {
@@ -11,13 +10,17 @@ export default styles = {
         backgroundColor: Colors.COLOR_PRIMARY,
         borderRadius: 25,
         width: 50,
-        height: 50
+        height: 50,
     },
     txtBadgeCount: {
-        color: 'white', fontSize: Fonts.FONT_SIZE_XX_SMALL,
-        position: 'absolute', right: -4, top: -4, paddingHorizontal: 5,
+        color: 'white',
+        fontSize: Fonts.FONT_SIZE_XX_SMALL,
+        position: 'absolute',
+        right: -4,
+        top: -4,
+        paddingHorizontal: 5,
         backgroundColor: 'red',
         textAlign: 'center',
-        borderRadius: Constants.CORNER_RADIUS * 6
-    }
+        borderRadius: Constants.CORNER_RADIUS * 6,
+    },
 };

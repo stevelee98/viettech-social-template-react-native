@@ -7,7 +7,7 @@ import ic_notification_white from 'images/ic_notification_white.png';
 import ic_share_white from 'images/ic_share_white.png';
 import { Text } from 'native-base';
 import PropTypes from 'prop-types';
-import React, { Component } from 'react';
+import React,{ Component } from 'react';
 import {
     Animated,
     Image,
@@ -16,7 +16,7 @@ import {
     StatusBar,
     TextInput,
     TouchableOpacity,
-    View
+    View,
 } from 'react-native';
 import commonStyles from 'styles/commonStyles';
 import StringUtil from 'utils/stringUtil';

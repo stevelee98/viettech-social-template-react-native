@@ -8,7 +8,6 @@ import statusType from 'enum/statusType';
 import ic_add_banner_white from 'images/ic_add_banner_white.png';
 import ic_filter_orange from 'images/ic_filter_orange.png';
 import { Container, Root, Text } from 'native-base';
-import React from 'react';
 import { Image, RefreshControl, TouchableOpacity, View } from 'react-native';
 import {
     Menu,

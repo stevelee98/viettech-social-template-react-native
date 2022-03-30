@@ -1,11 +1,7 @@
-import React from 'react-native';
 import commonStyles from 'styles/commonStyles';
 import { Colors } from 'values/colors';
 import { Constants } from 'values/constants';
 import { Fonts } from 'values/fonts';
-
-const { StyleSheet } = React;
-
 export default {
     container: {
         width: null,
@@ -116,7 +112,7 @@ export default {
     bottom: {
         flex: 1,
         justifyContent: 'flex-end',
-        padding: Constants.PADDING16
+        padding: Constants.PADDING16,
     },
     btnTerm: {
         marginBottom: Constants.MARGIN8,

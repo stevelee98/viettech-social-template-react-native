@@ -4,7 +4,7 @@ import ImageDefaultType from 'enum/imageDefaultType';
 import messageType from 'enum/messageType';
 import ic_document_red from 'images/ic_document_red.png';
 import ic_download_grey from 'images/ic_download_grey.png';
-import React, { PureComponent } from 'react';
+import React,{ PureComponent } from 'react';
 import {
     Dimensions,
     Image,

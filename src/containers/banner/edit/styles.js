@@ -1,12 +1,7 @@
-import React from 'react-native';
 import commonStyles from 'styles/commonStyles';
 import { Colors } from 'values/colors';
 import { Constants } from 'values/constants';
 import { Fonts } from 'values/fonts';
-const { Dimensions, Platform } = React;
-const { StyleSheet } = React;
-const screenWidth = Dimensions.get('window').width;
-const screenHeight = Dimensions.get('window').height;
 
 export default {
     container: {
@@ -31,8 +26,8 @@ export default {
         borderRadius: Constants.CORNER_RADIUS,
         borderStyle: 'dashed',
         borderColor: Colors.COLOR_GREY_LIGHT,
-        width: screenWidth - 32,
-        height: (screenWidth * 9) / 16,
+        width: Constants.MAX_WIDTH - 32,
+        height: (Constants.MAX_WIDTH * 9) / 16,
         borderWidth: Constants.BORDER_WIDTH + 1,
         marginHorizontal: Constants.MARGIN16,
     },
@@ -42,8 +37,8 @@ export default {
         borderRadius: Constants.CORNER_RADIUS,
         borderStyle: 'dashed',
         borderColor: Colors.COLOR_GREY_LIGHT,
-        width: screenWidth - 32,
-        height: (screenWidth * 5) / 16,
+        width: Constants.MAX_WIDTH - 32,
+        height: (Constants.MAX_WIDTH * 5) / 16,
         borderWidth: Constants.BORDER_WIDTH + 1,
         marginHorizontal: Constants.MARGIN16,
     },
@@ -53,8 +48,8 @@ export default {
     },
 
     imageSize: {
-        width: screenWidth - 32,
-        height: (screenWidth * 9) / 16,
+        width: Constants.MAX_WIDTH - 32,
+        height: (Constants.MAX_WIDTH * 9) / 16,
         borderRadius: Constants.CORNER_RADIUS,
         borderStyle: 'dashed',
         borderColor: Colors.COLOR_GREY_LIGHT,
@@ -62,8 +57,8 @@ export default {
     },
 
     imageDesktopSize: {
-        width: screenWidth - 32,
-        height: (screenWidth * 5) / 16,
+        width: Constants.MAX_WIDTH - 32,
+        height: (Constants.MAX_WIDTH * 5) / 16,
         borderRadius: Constants.CORNER_RADIUS,
         borderStyle: 'dashed',
         borderColor: Colors.COLOR_GREY_LIGHT,

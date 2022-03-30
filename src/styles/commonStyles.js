@@ -1,9 +1,6 @@
-import React from 'react-native';
 import { Colors } from 'values/colors';
 import { Constants } from 'values/constants';
 import { Fonts } from 'values/fonts';
-
-const { StyleSheet } = React;
 
 export default {
     text: {
@@ -74,6 +71,11 @@ export default {
         alignItems: 'center',
     },
     horizontal: { flexDirection: 'row', alignItems: 'center' },
+    horizontalCenter: {
+        flexDirection: 'row',
+        alignItems: 'center',
+        justifyContent: 'center',
+    },
     horizontalBetween: {
         flex: 1,
         flexDirection: 'row',

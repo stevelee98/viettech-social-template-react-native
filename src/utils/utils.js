@@ -1,4 +1,3 @@
-import { useNavigation } from '@react-navigation/native';
 import resourceType from 'enum/resourceType';
 import _ from 'lodash';
 import {
@@ -6,7 +5,7 @@ import {
     PermissionsAndroid,
     Platform,
     StatusBar,
-    ToastAndroid,
+    ToastAndroid
 } from 'react-native';
 import Toast from 'react-native-root-toast';
 import StringUtil from './stringUtil';
@@ -374,8 +373,8 @@ export default class Utils {
         }
     }
 
-    static showCameraRollView = async params => {
-        const hasPermission = false;
+    static showCameraRollView = async (params, navigation) => {
+        let hasPermission = false;
         if (
             Platform.OS === 'ios' ||
             (Platform.OS === 'android' && Platform.Version < 23)
@@ -387,17 +386,18 @@ export default class Utils {
             PermissionsAndroid.PERMISSIONS.READ_EXTERNAL_STORAGE,
         );
 
-        if (hasPermission) return true;
+        const status = await PermissionsAndroid.request(
+            PermissionsAndroid.PERMISSIONS.READ_EXTERNAL_STORAGE,
+        );
 
-        const status = await PermissionsAndroid.request(permissions);
+        if (status === PermissionsAndroid.RESULTS.GRANTED) hasPermission = true;
 
-        if (status === PermissionsAndroid.RESULTS.GRANTED) return true;
-
+        console.log('hasPermission', hasPermission);
         if (status === PermissionsAndroid.RESULTS.DENIED) {
             console.log('Permission denied by user.');
         } else if (status === PermissionsAndroid.RESULTS.NEVER_ASK_AGAIN) {
         }
-        if (hasPermission) useNavigation().navigate('CameraRoll', params);
+        if (hasPermission) navigation.navigate('CameraRoll', params);
     };
 
     static getTypeResource = type => {

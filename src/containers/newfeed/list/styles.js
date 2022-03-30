@@ -1,9 +1,6 @@
-import React from "react-native";
-import { Colors } from "values/colors";
-import { Constants } from 'values/constants'
-import commonStyles from "styles/commonStyles";
-const { Dimensions, Platform, StyleSheet } = React;
-const window = Dimensions.get("window");
+import commonStyles from 'styles/commonStyles';
+import { Colors } from 'values/colors';
+import { Constants } from 'values/constants';
 
 export default styles = {
     container: {
@@ -12,16 +9,16 @@ export default styles = {
         flex: 1,
         justifyContent: 'center',
         alignItems: 'stretch',
-        backgroundColor: Colors.COLOR_WHITE
+        backgroundColor: Colors.COLOR_WHITE,
     },
     chooseView: {
         ...commonStyles.viewCenter,
-        height: window.height / 3,
-        opacity: 0.2
+        height: Constants.MAX_HEIGHT / 3,
+        opacity: 0.2,
     },
     desView: {
         ...commonStyles.viewHorizontal,
-        alignItems: 'flex-start'
+        alignItems: 'flex-start',
     },
     checkBox: {
         ...commonStyles.viewCenter,
@@ -30,14 +27,14 @@ export default styles = {
         borderWidth: 1,
         borderRadius: 9,
         borderColor: Colors.COLOR_PRIMARY,
-        marginRight: Constants.MARGIN_X_LARGE
+        marginRight: Constants.MARGIN_X_LARGE,
     },
     boxTitle: {
         flexDirection: 'row',
         alignItems: 'center',
-        paddingVertical: Constants.PADDING_LARGE
+        paddingVertical: Constants.PADDING_LARGE,
     },
     title: {
-        ...commonStyles.text
-    }
-}
+        ...commonStyles.text,
+    },
+};

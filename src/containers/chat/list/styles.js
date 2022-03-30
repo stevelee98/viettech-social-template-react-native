@@ -1,10 +1,6 @@
-import React from 'react-native';
 import { Colors } from 'values/colors';
 import { Constants } from 'values/constants';
 import { Fonts } from 'values/fonts';
-const { Dimensions, Platform } = React;
-const { StyleSheet } = React;
-const window = Dimensions.get('window');
 
 export default {
     container: {

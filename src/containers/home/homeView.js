@@ -3,13 +3,15 @@ import HeaderCustom from 'components/headerCustom';
 import ImageLoader from 'components/imageLoader';
 import Loading from 'components/loading';
 import ListNewfeed from 'containers/newfeed/list/listNewfeed';
+import ic_list_bulleted_black from 'images/ic_list_bulleted_black.png';
 import { localizes } from 'locales/i18n';
 import React, { useEffect, useRef, useState } from 'react';
-import { Pressable, Text, TouchableOpacity, View } from 'react-native';
+import { Image, Pressable, Text, TouchableOpacity, View } from 'react-native';
 import commonStyles from 'styles/commonStyles';
 import { Colors } from 'values/colors';
 import { Constants } from 'values/constants';
 import fakeData from './fakeData';
+import Menu from './menu';
 import styles from './styles';
 
 const HomeView = props => {
@@ -21,6 +23,7 @@ const HomeView = props => {
 
     const navigation = useNavigation();
     const listRef = useRef();
+    const menu = useRef();
 
     useEffect(() => {
         global.user = fakeData.user;
@@ -71,9 +74,31 @@ const HomeView = props => {
             </View>
         );
     };
+
+    const openMenu = () => {
+        menu.current.openModal();
+    };
+
+    const renderRightMenu = () => {
+        return (
+            <Pressable
+                style={{ padding: Constants.PADDING8 }}
+                onPress={() => openMenu()}
+                android_ripple={Constants.ANDROID_RIPPLE}
+            >
+                <Image source={ic_list_bulleted_black} />
+            </Pressable>
+        );
+    };
+
     return (
         <View style={styles.container}>
-            <HeaderCustom visibleBack={false} visibleLogo user={global.user} />
+            <HeaderCustom
+                visibleBack={false}
+                visibleLogo
+                renderRightMenu={renderRightMenu}
+                visibleNotification
+            />
             <ListNewfeed
                 // onRef={listRef}
                 ListHeaderComponent={renderHeaderPost}
@@ -85,6 +110,8 @@ const HomeView = props => {
                 showEmpty={isLoading && data?.length == 0}
             />
             <Loading visible={isLoading} />
+
+            <Menu ref={menu} />
         </View>
     );
 };
