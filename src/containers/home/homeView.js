@@ -4,7 +4,6 @@ import ImageLoader from 'components/imageLoader';
 import Loading from 'components/loading';
 import ListNewfeed from 'containers/newfeed/list/listNewfeed';
 import ic_list_bulleted_black from 'images/ic_list_bulleted_black.png';
-import { localizes } from 'locales/i18n';
 import React, { useEffect, useRef, useState } from 'react';
 import { Image, Pressable, Text, TouchableOpacity, View } from 'react-native';
 import commonStyles from 'styles/commonStyles';
@@ -67,8 +66,7 @@ const HomeView = props => {
                             color: Colors.COLOR_DRK_GREY,
                         }}
                     >
-                        {localizes('hi')} {global.user?.name},{' '}
-                        {localizes('what_your_day').toLowerCase()}
+                        {'Hi'} {global.user?.name}, How are you today
                     </Text>
                 </TouchableOpacity>
             </View>
@@ -111,7 +109,7 @@ const HomeView = props => {
             />
             <Loading visible={isLoading} />
 
-            <Menu ref={menu} />
+            <Menu ref={menu} navigation={navigation} />
         </View>
     );
 };

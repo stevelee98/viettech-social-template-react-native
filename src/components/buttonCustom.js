@@ -1,3 +1,4 @@
+import React from 'react';
 import { Image, Pressable, StyleSheet, Text } from 'react-native';
 import commonStyles from 'styles/commonStyles';
 import Utils from 'utils/utils';

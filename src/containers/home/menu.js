@@ -20,6 +20,7 @@ import { Constants } from 'values/constants';
 const Menu = (props, ref) => {
     const [isVisible, setVisible] = useState(false);
     const modalRef = useRef();
+    const { navigation } = props;
 
     useImperativeHandle(ref, () => ({
         openModal,
@@ -66,20 +67,44 @@ const Menu = (props, ref) => {
                             Priscilla
                         </Text>
                     </View>
-                    <Pressable style={styles.itemButton}>
+                    <Pressable
+                        onPress={() => {
+                            hideModal();
+                            navigation.navigate('Profile');
+                        }}
+                        android_ripple={Constants.ANDROID_RIPPLE}
+                        style={styles.itemButton}
+                    >
                         <Image source={ic_account_black} />
                         <Text style={styles.title}>Account</Text>
                     </Pressable>
-                    <Pressable style={styles.itemButton}>
+                    <Pressable
+                        onPress={() => {
+                            hideModal();
+                            navigation.navigate('AddNewFeed');
+                        }}
+                        android_ripple={Constants.ANDROID_RIPPLE}
+                        style={styles.itemButton}
+                    >
                         <Image source={ic_add_black} />
                         <Text style={styles.title}>Add new post</Text>
                     </Pressable>
-                    <Pressable style={styles.itemButton}>
+                    <Pressable
+                        onPress={() => {
+                            hideModal();
+                            navigation.navigate('Login');
+                        }}
+                        android_ripple={Constants.ANDROID_RIPPLE}
+                        style={styles.itemButton}
+                    >
                         <Image source={ic_message_black} />
                         <Text style={styles.title}>Message</Text>
                     </Pressable>
                 </View>
-                <Pressable style={styles.logoutButton}>
+                <Pressable
+                    android_ripple={Constants.ANDROID_RIPPLE}
+                    style={styles.logoutButton}
+                >
                     <Image source={ic_logout_black} />
                     <Text style={styles.title}>Logout</Text>
                 </Pressable>

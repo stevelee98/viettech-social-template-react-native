@@ -116,6 +116,7 @@ const AddNewFeedView = props => {
     };
 
     const renderAddImage = () => {
+        if (images.length == 0) return <></>;
         return (
             <View style={styles.viewAddImage}>
                 <Text style={styles.titleChooseImage}>

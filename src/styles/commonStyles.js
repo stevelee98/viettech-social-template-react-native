@@ -39,6 +39,15 @@ export default {
         fontSize: Fonts.FONT20,
         fontWeight: '500',
     },
+    textXXLarge: {
+        color: Colors.COLOR_TEXT,
+        fontSize: Fonts.FONT24,
+    },
+    textXXLargeBold: {
+        color: Colors.COLOR_TEXT,
+        fontSize: Fonts.FONT24,
+        fontWeight: '700',
+    },
     textXSmall: {
         color: Colors.COLOR_TEXT,
         fontSize: Fonts.FONT12,
